@@ -8,18 +8,19 @@
       </div>
 
       <div class="row justify-content-center">
-        <div class="col-auto form-group">
+        <div class="col-auto form-group mt-2">
           <input
             type="file"
             class="form-control-file"
+            id="fileInputId"
             @change="handleFileSelect"
-            accept=" application/vnd.ms-Excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+            accept=".xlsx,.xls"
           />
         </div>
       </div>
 
       <div class="row justify-content-center">
-        <div class="col-lg-3 col-md-4 col-sm-5 col-6 pb-5">
+        <div class="col-lg-3 col-md-4 col-sm-5 col-6 pb-5 pt-3">
           <button
             class="btn btn-block btn-primary"
             v-if="excel"
@@ -74,6 +75,7 @@ export default {
               this.excel = "";
               this.file = "";
               this.name = "";
+              document.getElementById("fileInputId").value = null;
               Swal.fire({
                 icon: "success",
                 title: "¡Éxito!",
@@ -107,6 +109,7 @@ export default {
       let palabra = string.substr(0, desde + 7);
       this.excel = string.replace(palabra, "");
       this.name = this.file.name;
+      //google-chrome-stable --disable-web-security --user-data-dir="[some directory here]"
     },
   },
 };
