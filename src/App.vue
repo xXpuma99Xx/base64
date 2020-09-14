@@ -1,36 +1,40 @@
 <template>
   <section>
-    <div class="container">
-      <div class="row justify-content-center pt-5">
-        <div class="col-auto">
-          <h1>Seleccione su archivo:</h1>
-        </div>
-      </div>
+    <div class="container-fluid">
+      <div class="row align-items-center full">
+        <div class="col">
+          <div class="row justify-content-center pt-5">
+            <div class="col-auto">
+              <h1 class="h2">Seleccione su archivo:</h1>
+            </div>
+          </div>
 
-      <div class="row justify-content-center">
-        <div class="col-auto form-group mt-2">
-          <input
-            type="file"
-            class="form-control-file"
-            id="fileInputId"
-            @change="handleFileSelect"
-            accept=".xlsx,.xls"
-          />
-        </div>
-      </div>
+          <div class="row justify-content-center">
+            <div class="col-auto form-group mt-2">
+              <input
+                type="file"
+                class="form-control-file"
+                id="fileInputId"
+                @change="handleFileSelect"
+                accept=".xlsx,.xls"
+              />
+            </div>
+          </div>
 
-      <div class="row justify-content-center">
-        <div class="col-lg-3 col-md-4 col-sm-5 col-6 pb-5 pt-3">
-          <button
-            class="btn btn-block btn-primary"
-            v-if="excel"
-            @click="enviar()"
-          >
-            Enviar
-          </button>
-          <button class="btn btn-block btn-primary disabled" v-else>
-            Enviar
-          </button>
+          <div class="row justify-content-center">
+            <div class="col-lg-3 col-md-4 col-sm-5 col-6 pb-5 pt-3">
+              <button
+                class="btn btn-block btn-primary"
+                v-if="excel"
+                @click="enviar()"
+              >
+                Enviar
+              </button>
+              <button class="btn btn-block btn-primary disabled" v-else>
+                Enviar
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -117,7 +121,13 @@ export default {
 
 <style>
 section {
-  background-color: #333333;
+  background-color: rgba(50, 146, 166, 0.8);
   color: white;
+}
+.full {
+  height: 100vh;
+}
+.full > .col {
+  background-color: #333333;
 }
 </style>
